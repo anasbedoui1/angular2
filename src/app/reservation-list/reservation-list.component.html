@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Reservations List</h1>
+  <ul>
+    <li *ngFor="let reservation of reservations">
+      {{ reservation.departureDate }} - {{ reservation.returnDate }} ({{ reservation.status }})
+      <button (click)="deleteReservation(reservation.id)">Delete</button>
+      <button (click)="updateReservation(reservation)">Update</button>
+    </li>
+  </ul>
+  <form (ngSubmit)="createReservation()">
+    <label>Departure Date:</label>
+    <input type="date" [(ngModel)]="newReservation.departureDate">
+    <br>
+    <label>Return Date:</label>
+    <input type="date" [(ngModel)]="newReservation.returnDate">
+    <br>
+    <label>Status:</label>
+    <input type="text" [(ngModel)]="newReservation.status">
+    <br>
+    <button type="submit">Create Reservation</button>
+  </form>
+</div>

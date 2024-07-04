@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Louages List</h1>
+  <ul>
+    <li *ngFor="let louage of louages">
+      {{ louage.name }} ({{ louage.description }})
+      <button (click)="deleteLouage(louage.id)">Delete</button>
+      <button (click)="updateLouage(louage)">Update</button>
+    </li>
+  </ul>
+  <form (ngSubmit)="createLouage()">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="newLouage.name">
+    <br>
+    <label>Description:</label>
+    <input type="text" [(ngModel)]="newLouage.description">
+    <br>
+    <button type="submit">Create Louage</button>
+  </form>
+</div>
